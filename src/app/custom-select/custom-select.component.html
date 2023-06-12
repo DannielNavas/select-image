@@ -1,0 +1,19 @@
+
+<div class="dropdown-collection">
+    <button class="dropdown-button" aria-haspopup="listbox" aria-labelledby="dropdown-label" (click)="toggleDropdown()" (clickOutside)="dropdownOpen = false">
+        <span class="dropdown-value">{{currentValue.name}}</span>
+    </button>
+    <ul class="dropdown-list" role="listbox" aria-expanded="false" [ngClass]="{'dropdown-open' : dropdownOpen}">
+        <li *ngFor="let option of options"
+            [ngClass]="{'selected' : currentValue === option}"
+            tabindex="0"
+            (click)="select(option)"
+            role="option"
+            >
+            <div>
+                <img [src]="option.img" [alt]="option.name">
+                <span>{{option.name}}</span>
+            </div>
+          </li>
+    </ul>
+</div>
